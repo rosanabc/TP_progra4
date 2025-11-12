@@ -1,0 +1,22 @@
+# Visual Studio / .NET
+.vs/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.sln.docstates
+
+# Frontend
+node_modules/
+dist/
+build/
+
+# DB
+*.mdf
+*.ldf
+
+# OS/Editor
+Thumbs.db
+.DS_Store
