@@ -1,0 +1,13 @@
+.vs/
+[Bb]in/
+[Oo]bj/
+node_modules/
+dist/
+build/
+*.user
+*.suo
+*.sln.docstates
+*.mdf
+*.ldf
+*.db
+DB/*.db

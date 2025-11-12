@@ -1,0 +1,663 @@
+/* :root para definir variables globales */
+:root {
+    --primary-color: #0052cc;
+    --secondary-color: #0366d6;
+    --danger-color: #e74c3c;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --text-color: #333;
+    --background-color: #f7f9fc;
+    --border-radius: 8px;
+    --box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------- Reset General ---------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+}
+
+/* ---------------------- Sidebar ---------------------- */
+.sidebar {
+    width: 275px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    height: 100vh;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.menu {
+    flex: 1; /* Ocupa el espacio disponible */
+    overflow-y: auto; /* Habilitar scroll vertical */
+    padding-right: 8px; /* Espaciado para evitar superposición del scroll */
+}
+
+/* Personalización del scroll */
+.menu::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra */
+}
+
+.menu::-webkit-scrollbar-track {
+    background: var(--secondary-color); /* Fondo de la barra */
+    border-radius: var(--border-radius);
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); /* Color de la barra de desplazamiento */
+    border-radius: var(--border-radius);
+    border: 2px solid var(--secondary-color); /* Separación visual */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #003a99; /* Color al pasar el mouse */
+}
+
+.sidebar h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.sidebar .menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: background-color 300ms ease, transform 100ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Dropdown específico */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown .dropdown-toggle {
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar .dropdown .dropdown-menu {
+    display: none; /* Oculta el menú por defecto */
+    position: relative;
+    left: 0;
+    top: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dropdown específico */
+.navbar .dropdown .dropdown-menu {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute; /* Asegura el posicionamiento relativo al botón */
+    left: 0;
+    top: 100%; /* Alinea el menú debajo del botón */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Asegura que el menú ocupe el ancho del contenedor */
+}
+
+/* Cambiar la regla para mostrar el menú únicamente con la clase "active" */
+.navbar .dropdown.active .dropdown-menu {
+    display: block; /* Muestra el menú cuando el contenedor tiene la clase "active" */
+}
+
+/* Submenú de módulos */
+/* Menú desplegable oculto por defecto */
+.dropdown-menu {
+    display: none; /* Oculta el menú */
+    position: relative;
+    left: 0;
+    top: 100%;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 8px;
+}
+
+/* Mostrar el menú cuando esté activo */
+.dropdown.active .dropdown-menu {
+    display: block; /* Muestra el menú */
+}
+
+.dropdown-menu li a {
+    padding: 12px 24px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background-color 300ms ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--primary-color);
+}
+
+/* Botón de dropdown */
+.toggle-dropdown {
+    display: flex; /* Habilita el modo flexbox */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: space-between; /* Empuja la flecha a la derecha */
+    padding: 12px 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: background-color 300ms ease, transform 100ms ease;
+}
+
+/* Estilo para la flecha */
+.dropdown-arrow {
+    margin-left: auto; /* Asegura que la flecha esté a la derecha */
+    transform: rotate(0deg); /* Posición inicial (hacia la derecha) */
+    transition: transform 300ms ease; /* Transición suave para la rotación */
+}
+
+/* Rotar la flecha hacia abajo cuando el menú esté desplegado */
+.dropdown.active .dropdown-arrow {
+    transform: rotate(90deg); /* Rotación de 90 grados hacia abajo */
+}
+
+
+/* Botón de logout */
+.logout {
+    background-color: var(--danger-color);
+    font-weight: bold;
+    text-align: center;
+    border-radius: var(--border-radius);
+    padding: 12px 16px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: auto;
+    z-index: 10;
+    position: sticky;
+    transition: background-color 300ms ease;
+    bottom: 0;
+}
+
+.logout:hover {
+    background-color: #c0392b;
+}
+
+/* ---------------------- Main Content ---------------------- */
+main {
+    margin-left: 250px;
+    padding: 32px;
+    flex: 1;
+}
+
+section {
+    max-width: none;
+    margin: auto;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow-x: auto; 
+    display: block; 
+}
+
+h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* ---------------------- Table ---------------------- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.table thead {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th.actions-header {
+    text-align: right;
+}
+
+.table td.actions-cell {
+    text-align: right;
+}
+
+/* ---------------------- Buttons ---------------------- */
+.btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 300ms ease;
+}
+
+.btn:hover {
+    background-color: #003a99;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* ---------------------- Login ---------------------- */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    width: 100%;
+}
+
+.login-box {
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.login-box h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+}
+
+.login-box .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.login-box .form-group label {
+    display: block;
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.login-box .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    transition: border-color 300ms ease;
+}
+
+.login-box .form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.login-box .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.login-box .btn:hover {
+    background-color: #003a99;
+}
+
+.login-box .error-message {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--danger-color);
+    display: none;
+}
+
+/* Botones específicos para acciones */
+
+/* Botón de Editar */
+.action-btn.edit {
+    color: #28a745; /* Verde */
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.action-btn.edit:hover {
+    color: #218838; /* Verde más oscuro */
+    background-color: rgba(40, 167, 69, 0.1); /* Fondo verde claro */
+}
+
+/* Botón de Eliminar */
+.action-btn.delete {
+    color: #e74c3c; /* Rojo */
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.action-btn.delete:hover {
+    color: #c0392b; /* Rojo más oscuro */
+    background-color: rgba(231, 76, 60, 0.1); /* Fondo rojo claro */
+}
+
+/* Botón de Pagar */
+.action-btn.pay {
+    color: #f39c12; /* Naranja */
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.action-btn.pay:hover {
+    color: #e67e22; /* Naranja más oscuro */
+    background-color: rgba(243, 156, 18, 0.1); /* Fondo naranja claro */
+}
+
+/* Botón de Cancelar */
+.action-btn.cancel {
+    color: #3498db; /* Azul */
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.action-btn.cancel:hover {
+    color: #2980b9; /* Azul más oscuro */
+    background-color: rgba(52, 152, 219, 0.1); /* Fondo azul claro */
+}
+
+/* Opcional: Estilo general para todos los action-btn */
+.action-btn {
+    border-radius: var(--border-radius);
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para el modal de confirmación */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.modal-content h3 {
+    margin-bottom: 16px;
+    color: var(--danger-color);
+}
+
+.modal-content p {
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-actions .btn {
+    flex: 1;
+    margin: 0 8px;
+}
+
+/* ---------------------- Formulario Reutilizable ---------------------- */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.form-container .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-container .form-group label {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-container .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    transition: border-color 300ms ease;
+}
+
+.form-container .form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-container .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.form-container .form-actions .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 300ms ease;
+}
+
+.form-container .form-actions .btn-primary {
+    background-color: var(--primary-color);
+}
+
+.form-container .form-actions .btn-primary:hover {
+    background-color: #003a99;
+}
+
+.form-container .form-actions .btn-secondary {
+    background-color: var(--danger-color);
+}
+
+.form-container .form-actions .btn-secondary:hover {
+    background-color: #9f0303;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container .form-control {
+    flex: 1;
+    padding-right: 40px; /* Espacio para el botón */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--text-color);
+    transition: color 300ms ease;
+}
+
+.password-container .toggle-password:hover {
+    color: var(--primary-color);
+}
+
+/* Contenedor del Dashboard */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor del Gráfico */
+.chart-container {
+    flex: 2;
+    max-width: 60%;
+    height: 400px;
+}
+
+/* Contenedor de las tarjetas */
+.info-cards {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.info-card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------------------- Responsiveness ---------------------- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    main {
+        margin-left: 200px;
+        padding: 16px;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+}
+

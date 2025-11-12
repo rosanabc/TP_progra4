@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Cliente</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+        <h1 class="d-flex align-items-center">
+            <i class="bi bi-grid me-2"></i> Energia Activa
+        </h1>
+        <div class="menu">
+            <nav>
+                <ul class="navbar">
+                    <li><a href="home.html" class="nav-link"><i class="bi bi-house-door"></i> Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link toggle-dropdown">
+                            <span><i class="bi bi-gear"></i> Módulos</span>
+                            <i class="bi bi-chevron-right dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="list_reservas.html" class="nav-link"><i class="bi bi-calendar-check"></i> Reservas</a></li>
+                            <li><a href="list_mantenimientos.html" class="nav-link"><i class="bi bi-wrench"></i> Mantenimientos</a></li>
+                            <li><a href="list_clientes.html" class="nav-link"><i class="bi bi-people"></i> Clientes</a></li>
+                            <li><a href="list_bloqueos.html" class="nav-link"><i class="bi bi-shield-slash"></i> Bloqueos</a></li>
+                            <li><a href="list_reservas-pagos.html" class="nav-link"><i class="bi bi-cash"></i> Pagos de reservas</a></li>
+                            <li><a href="list_cancelaciones.html" class="nav-link"><i class="bi bi-x-circle"></i> Cancelaciones</a></li>
+                            <li><a href="list_canchas.html" class="nav-link"><i class="bi bi-geo-alt"></i> Canchas</a></li>
+                            <li><a href="list_deportes.html" class="nav-link"><i class="bi bi-trophy"></i> Deportes</a></li>
+                            <li><a href="list_canchas-deportes.html" class="nav-link"><i class="bi bi-collection"></i> Deportes por cancha</a></li>
+                            <li><a href="list_horarios-canchas.html" class="nav-link"><i class="bi bi-clock"></i> Horarios por canchas</a></li>
+                            <li><a href="list_tipos-descuentos.html" class="nav-link"><i class="bi bi-tags"></i> Tipos de descuentos</a></li>
+                            <li><a href="list_tipos-pagos.html" class="nav-link"><i class="bi bi-wallet2"></i> Tipos de pago</a></li>
+                            <li><a href="list_ubicaciones.html" class="nav-link"><i class="bi bi-geo"></i> Ubicaciones</a></li>
+                            <li><a href="list_tipos-suelos.html" class="nav-link"><i class="bi bi-tree"></i> Tipos de suelo</a></li>
+                            <li><a href="list_estados-canchas.html" class="nav-link"><i class="bi bi-check-circle"></i> Estados de canchas</a></li>
+                        </ul>
+                    </li>                                      
+                </ul>
+            </nav>
+        </div>
+        <a href="login.html" class="logout"><i class="bi bi-box-arrow-right"></i> Salir</a>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="form-container">
+            <h2>Actualizar Cliente</h2>
+            <form id="update-cliente-form">
+                <div class="form-group">
+                    <label for="cliente-id">ID del cliente</label>
+                    <input type="text" id="cliente-id" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="cliente-nombre">Nombre del cliente</label>
+                    <input type="text" id="cliente-nombre" class="form-control" placeholder="Ingrese el nuevo nombre del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-apellido">Apellido del cliente</label>
+                    <input type="text" id="cliente-apellido" class="form-control" placeholder="Ingrese el nuevo apellido del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-direccion">Dirección del cliente</label>
+                    <input type="text" id="cliente-direccion" class="form-control" placeholder="Ingrese la nuevo dirección del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-telefono">Telefono del cliente</label>
+                    <input type="text" id="cliente-telefono" class="form-control" placeholder="Ingrese el nuevo teléfono del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-email">Email del cliente</label>
+                    <input type="email" id="cliente-email" class="form-control" placeholder="Ingrese el nuevo email del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-documento">C.I. del cliente</label>
+                    <input type="text" id="cliente-documento" class="form-control" placeholder="Ingrese el nuevo documento del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-edad">Edad del cliente</label>
+                    <input type="number" id="cliente-edad" class="form-control" placeholder="Ingrese la nueva edad del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-estado_cliente">Estado del cliente</label>
+                    <select id="cliente-estado_cliente" class="form-control">
+                        <option value="H">Habilitado</option>
+                        <option value="B">Bloqueado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cliente-barrio">Barrio del cliente</label>
+                    <input type="text" id="cliente-barrio" class="form-control" placeholder="Ingrese el nuevo barrio del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-pais">País del cliente</label>
+                    <input type="text" id="cliente-pais" class="form-control" placeholder="Ingrese el nuevo país del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="cliente-ciudad">Ciudad del cliente</label>
+                    <input type="text" id="cliente-ciudad" class="form-control" placeholder="Ingrese la nueva ciudad del cliente">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-button">Actualizar Cliente</button>
+                    <a href="list_clientes.html" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>    
+    <script src="./js/upd_cliente.js"></script>
+    <!-- Script para el comportamiento del dropdown -->
+    <script src="js/dropdown.js"></script>
+</body>
+</html>
